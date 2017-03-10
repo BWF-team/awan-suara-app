@@ -87,18 +87,20 @@
         <table class="table table-striped">
           <thead>
             <tr>
-              <th>Firstname</th>
-              <th>Lastname</th>
-              <th>Email</th>
-              <th>Queueing Status</th>
+              <th>No</th>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Date Assigned</th>
+              <th>Status</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="people in peoples">
+              <td>1</td>
+              <td>{{ people._id }}</td>
               <td>{{ people.name }}</td>
-              <td>{{ people.mass }}</td>
-              <td>{{ people.hair_color }}</td>
-              <td v-if="people.skin_color=='fair'">{{ people.skin_color }}</td>
+              <td>{{ people.date_assign }}</td>
+              <td v-if="people.skin_color=='fair'">{{ people }}</td>
               <td v-else><button class="btn btn-info" v-on:click="reverseMessage">Done</button></td>
             </tr>
           </tbody>
