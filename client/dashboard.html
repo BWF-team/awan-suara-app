@@ -95,13 +95,12 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="people in peoples">
+            <tr v-for="people in peoples" >
               <td>1</td>
               <td>{{ people._id }}</td>
               <td>{{ people.name }}</td>
               <td>{{ people.date_assign }}</td>
-              <td v-if="people.skin_color=='fair'">{{ people }}</td>
-              <td v-else><button class="btn btn-info" v-on:click="reverseMessage">Done</button></td>
+              <td><button class="btn btn-info" v-on:click="deleteQueue(people)">Done</button></td>
             </tr>
           </tbody>
         </table>

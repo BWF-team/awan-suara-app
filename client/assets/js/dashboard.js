@@ -23,6 +23,16 @@ var app = new Vue({
     },
     setTokenLocalStorage: () => {
       localStorage.setItem('token', app.getQueryStringValue('q'))
+    },
+    deleteQueue: (people) => {
+      axios.delete(`http://localhost:3000/api/list/${people._id}`).then((response) => {
+        console.log(response.data)
+        if (response.data.message == 'successfully deleted') {
+          app.peoples.splice(app.peoples.indexOf(people), 1)
+        } else {
+          alert('Error coy!')
+        }
+      })
     }
   }
 })
