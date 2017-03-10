@@ -1,6 +1,7 @@
 var app = new Vue({
   el: '#app',
   data: {
+    count: 1,
     message: 'Hello Vue!',
     peoples: []
   },
@@ -24,11 +25,11 @@ var app = new Vue({
     setTokenLocalStorage: () => {
       localStorage.setItem('token', app.getQueryStringValue('q'))
     },
-    deleteQueue: (people) => {
-      axios.delete(`http://localhost:3000/api/list/${people._id}`).then((response) => {
-        console.log(response.data)
+    deleteQueue: (id, idx) => {
+      console.log(id + ' , ' + idx)
+      axios.delete(`http://localhost:3000/api/list/${id}`).then((response) => {
         if (response.data.message == 'successfully deleted') {
-          app.peoples.splice(app.peoples.indexOf(people), 1)
+          app.peoples.splice(idx - 1, 1)
         } else {
           alert('Error coy!')
         }

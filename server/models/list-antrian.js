@@ -4,9 +4,9 @@ const Mongoose = require('mongoose')
 const Schema = Mongoose.Schema
 
 let schemaList = Schema({
-  'id' : String,
-  'name' : String,
-  'date_assign': Date
+  'name': String,
+  'date_assign': String,
+  'status': Boolean
 })
 
 let lists = Mongoose.model('lists', schemaList)

@@ -95,12 +95,12 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="people in peoples" >
-              <td>1</td>
+            <tr v-for="(people, index) in peoples" >
+              <td>{{ index += 1 }}</td>
               <td>{{ people._id }}</td>
               <td>{{ people.name }}</td>
               <td>{{ people.date_assign }}</td>
-              <td><button class="btn btn-info" v-on:click="deleteQueue(people)">Done</button></td>
+              <td><button class="btn btn-info" v-on:click="deleteQueue(people._id, index)">Done</button></td>
             </tr>
           </tbody>
         </table>
